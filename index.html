@@ -4,9 +4,121 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Dad's Outdoor Solutions · Professional Gardening in Tampa</title>
-  <meta name="description" content="Experts in garden cleaning, lawn trimming, and patio maintenance in Tampa. Personalized service and affordable prices.">
-  <meta name="keywords" content="garden cleaning, lawn trimming, plant care, patio maintenance Tampa, professional gardening Florida">
+  <meta name="description" content="Experts in garden cleaning, lawn trimming, and patio maintenance in Tampa. Personalized service and affordable prices. Dad's Outdoor Solutions is your trusted gardening company in Tampa, Florida.">
+  <meta name="keywords" content="garden cleaning, lawn trimming, plant care, patio maintenance Tampa, professional gardening Florida, gardening company Tampa, lawn care Tampa, outdoor solutions Tampa">
+  <link rel="icon" href="img/logo.jpg" type="image/jpeg">
+  <!-- Open Graph for social sharing -->
+  <meta property="og:title" content="Dad's Outdoor Solutions · Professional Gardening in Tampa">
+  <meta property="og:description" content="Experts in garden cleaning, lawn trimming, and patio maintenance in Tampa. Personalized service and affordable prices.">
+  <meta property="og:image" content="img/logo.jpg">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://yourdomain.com/index.html">
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Dad's Outdoor Solutions · Professional Gardening in Tampa">
+  <meta name="twitter:description" content="Experts in garden cleaning, lawn trimming, and patio maintenance in Tampa. Personalized service and affordable prices.">
+  <meta name="twitter:image" content="img/logo.jpg">
+  <!-- Structured Data for Local Business -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "Dad's Outdoor Solutions",
+    "image": "img/logo.jpg",
+    "@id": "https://yourdomain.com/",
+    "url": "https://yourdomain.com/",
+    "telephone": "813-526-0925",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Tampa",
+      "addressRegion": "FL",
+      "addressCountry": "US"
+    },
+    "description": "Experts in garden cleaning, lawn trimming, and patio maintenance in Tampa. Personalized service and affordable prices."
+  }
+  </script>
   <style>
+    section {
+      position: relative;
+      transition: box-shadow 0.2s, transform 0.2s;
+    }
+    section:nth-of-type(odd) {
+      background: linear-gradient(135deg, #eaf5e2 60%, #f9f9f9 100%);
+    }
+    section:nth-of-type(even) {
+      background: linear-gradient(135deg, #f9f9f9 60%, #eaf5e2 100%);
+    }
+    section h2 {
+      font-size: 2em;
+      color: #406343;
+      margin-bottom: 0.7em;
+      background: linear-gradient(90deg, #eaf5e2 20%, #83aa5d 100%);
+      padding: 0.4em 1em;
+      border-radius: 8px;
+      box-shadow: 0 1px 6px rgba(64,99,67,0.07);
+      display: inline-block;
+    }
+    section:not(:last-of-type)::after {
+      content: "";
+      display: block;
+      width: 60%;
+      height: 2px;
+      margin: 2em auto 0 auto;
+      background: linear-gradient(90deg, #83aa5d 0%, #eaf5e2 100%);
+      opacity: 0.3;
+      border-radius: 2px;
+    }
+    section ul {
+      padding-left: 0;
+    }
+    section li {
+      background: #f6fdf2;
+      margin-bottom: 0.7em;
+      padding: 0.7em 1em 0.7em 3.4em;
+      border-radius: 8px;
+      box-shadow: 0 1px 4px rgba(64,99,67,0.05);
+      position: relative;
+      font-size: 1.1em;
+    }
+    section li::before {
+      content: '🌿';
+      position: absolute;
+      left: 0.7em;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 1.1em;
+      background: #83aa5d;
+      color: #fff;
+      border-radius: 50%;
+      width: 1.4em;
+      height: 1.4em;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 1px 4px rgba(64,99,67,0.08);
+    }
+    nav {
+      background-color: #2d472f;
+      color: white;
+      display: flex;
+      justify-content: center;
+      gap: 2em;
+      padding: 1em 0;
+      font-size: 1.1em;
+      font-family: inherit;
+    }
+    nav a {
+      color: white;
+      text-decoration: none;
+      padding: 0.5em 1em;
+      border-radius: 4px;
+      transition: background 0.2s;
+    }
+    nav a:hover, nav a:focus {
+      background-color: #83aa5d;
+      color: #2d472f;
+      outline: none;
+    }
     html, body {
       height: 100%;
       margin: 0;
@@ -51,7 +163,16 @@
     section {
       padding: 2em;
       max-width: 900px;
-      margin: auto;
+      margin: 2em auto;
+      background: linear-gradient(135deg, #eaf5e2 60%, #f9f9f9 100%);
+      border-radius: 16px;
+      box-shadow: 0 2px 12px rgba(64,99,67,0.07);
+      transition: box-shadow 0.2s;
+    }
+    section:hover, section:focus-within {
+      box-shadow: 0 8px 32px rgba(64,99,67,0.18);
+      transform: scale(1.025);
+      z-index: 2;
     }
 
     section ul {
@@ -106,16 +227,28 @@
   </style>
 </head>
 <body>
+  <a href="#main-content" class="skip-link" style="position:absolute;left:-999px;top:auto;width:1px;height:1px;overflow:hidden;background:#406343;color:#fff;padding:8px;z-index:1000;">Skip to main content</a>
   <div class="page-wrapper">
 
-    <header>
+    <nav aria-label="Main navigation" role="navigation">
+      <a href="index.html">Home</a>
+      <a href="#servicios">Services</a>
+      <a href="#beneficios">Benefits</a>
+      <a href="#galeria">Gallery</a>
+      <a href="#testimonios">Testimonials</a>
+      <a href="formulario.html">Request Quote</a>
+      <a href="#contacto">Contact</a>
+    </nav>
+
+    <header role="banner">
       <div style="display: flex; flex-direction: column; align-items: center;">
-        <img src="img/logo.jpg" alt="Dad's Outdoor Solutions Logo" style="max-height: 200px; margin-bottom: 1em;">
-        <h1>Professional care for gardens, lawns, and yards in Tampa</h1>
-        <p>We specialize in cleaning, trimming, and plant care with personalized attention and environmental commitment. Serving all of Tampa so your garden always looks its best.</p>
-        <a href="formulario.html">✍️ Request your quote now</a>
+        <img src="img/logo.jpg" alt="Dad's Outdoor Solutions company logo" style="max-height: 200px; margin-bottom: 1em; box-shadow: 0 4px 16px rgba(64,99,67,0.15); border-radius: 12px;">
+        <h1 style="font-size:2.5em; margin-bottom:0.3em;">Professional care for gardens, lawns, and yards in Tampa</h1>
+        <p style="font-size:1.2em; max-width:600px;">We specialize in cleaning, trimming, and plant care with personalized attention and environmental commitment. Serving all of Tampa so your garden always looks its best.</p>
+        <a href="formulario.html" style="margin-top:1em; font-size:1.1em; box-shadow: 0 2px 8px rgba(131,170,93,0.15);">✍️ Request your quote now</a>
       </div>
     </header>
+    <main id="main-content" role="main">
 
     <section id="sobre-nosotros">
       <h2>About Us</h2>
@@ -166,10 +299,51 @@
       <a href="tel:8135260925">📞 Call us: 813-526-0925</a>
     </section>
 
-    <footer>
+    <footer role="contentinfo">
       <p>&copy; 2025 Dad's Outdoor Solutions · Gardening in Tampa, FL</p>
     </footer>
-
+    </main>
+    .skip-link:focus {
+      left: 0;
+      width: auto;
+      height: auto;
+      outline: 2px solid #fff;
+    }
+    nav a:focus {
+      outline: 2px solid #83aa5d;
+      background-color: #eaf5e2;
+      color: #2d472f;
+    }
+  </style>
+  <script>
+    // Highlight section when navigated from menu
+    document.addEventListener('DOMContentLoaded', function() {
+      const navLinks = document.querySelectorAll('nav a[href^="#"]');
+      navLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+          const targetId = this.getAttribute('href').replace('#','');
+          const section = document.getElementById(targetId);
+          if (section) {
+            // Remove highlight from all sections first
+            document.querySelectorAll('section').forEach(sec => sec.classList.remove('highlighted-section'));
+            // Add highlight class
+            section.classList.add('highlighted-section');
+            // Remove after animation
+            setTimeout(() => section.classList.remove('highlighted-section'), 700);
+          }
+        });
+      });
+    });
+  </script>
+  <style>
+    .highlighted-section {
+      box-shadow: 0 8px 32px rgba(64,99,67,0.18) !important;
+      transform: scale(1.025) !important;
+      z-index: 2;
+      transition: box-shadow 0.2s, transform 0.2s, background 0.2s;
+      background: #fff !important;
+    }
+  </style>
   </div>
 </body>
 </html>
