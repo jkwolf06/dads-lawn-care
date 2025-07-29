@@ -6,6 +6,58 @@
   <meta name="description" content="Request professional gardening and lawn care services in Tampa. Free quotes, expert advice, and personalized attention.">
   <title>Request Service · Dad's Outdoor Solutions</title>
   <style>
+    /* Animación de foco en campos */
+    input:focus, textarea:focus {
+      outline: none;
+      border-color: #4d7c59;
+      box-shadow: 0 0 0 2px #83c99e;
+      transition: box-shadow 0.2s;
+    }
+    /* Botón de envío mejorado */
+    .submit-btn {
+      margin-top: 20px;
+      background: linear-gradient(90deg, #4d7c59 60%, #83c99e 100%);
+      color: #fff;
+      border: none;
+      cursor: pointer;
+      transition: background 0.3s, box-shadow 0.2s;
+      font-size: 1.15em;
+      font-weight: bold;
+      padding: 14px 0;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(64,99,67,0.10);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+    .submit-btn:hover {
+      background: linear-gradient(90deg, #3b6245 60%, #83c99e 100%);
+      box-shadow: 0 4px 12px rgba(64,99,67,0.15);
+    }
+    /* Mensajes de error personalizados */
+    .error-message {
+      color: #d32f2f;
+      font-size: 0.95em;
+      margin-top: 2px;
+      margin-bottom: 8px;
+      display: none;
+    }
+    /* Iconos para etiquetas */
+    .label-icon {
+      margin-right: 8px;
+      font-size: 1.2em;
+      vertical-align: middle;
+    }
+    /* Imagen decorativa para el formulario */
+    .form-decor {
+      width: 100%;
+      height: 120px;
+      background: url('img/decor.jpg') center/cover no-repeat;
+      border-radius: 12px;
+      margin-bottom: 18px;
+      box-shadow: 0 2px 10px rgba(64,99,67,0.08);
+    }
     html, body {
       height: 100%;
       margin: 0;
@@ -32,9 +84,24 @@
       max-width: 600px;
       margin: 30px auto;
       padding: 20px;
-      background: #f9f9f9;
+      background: linear-gradient(135deg, #eaf5e2 60%, #83c99e 100%);
+      border-radius: 16px;
+      box-shadow: 0 2px 12px rgba(64,99,67,0.10);
+    }
+    h2 {
+      font-size: 2em;
+      color: #2f573f;
+      margin-bottom: 0.7em;
+      padding: 0.4em 1em;
       border-radius: 8px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      box-shadow: 0 1px 6px rgba(64,99,67,0.07);
+      display: inline-block;
+      font-family: 'Segoe UI', sans-serif;
+      font-weight: bold;
+      letter-spacing: 1px;
+    }
+    label {
+      color: #406343;
     }
 
     form {
@@ -73,9 +140,22 @@
       padding: 20px;
       font-size: 0.9em;
     }
+
+    .skip-link:focus {
+      position: absolute;
+      left: 0;
+      top: 0;
+      background: #000;
+      color: #fff;
+    }
+
+    nav a:focus {
+      outline: 2px solid #000;
+    }
   </style>
 </head>
 <body>
+  <a href="#main-content" class="skip-link" style="position:absolute;left:-999px;top:auto;width:1px;height:1px;overflow:hidden;background:#000;color:#fff;z-index:1000;">Saltar al contenido</a>
   <div class="page-wrapper">
 
     <header>
@@ -85,23 +165,31 @@
     </header>
 
     <main>
-      <h2>Service Request</h2>
+      <div class="form-decor"></div>
+      <h2 id="main-content"><span class="label-icon">📝</span>Service Request</h2>
+      <p style="margin-bottom:18px;font-size:1.1em;color:#406343;background:#eaf5e2;padding:10px 16px;border-radius:8px;box-shadow:0 1px 6px rgba(64,99,67,0.07);">
+        Solicita una cotización gratuita para jardinería y cuidado de césped en Tampa. Servicio rápido, profesional y personalizado. ¡Llena el formulario y te contactaremos pronto!
+      </p>
 
-      <form action="https://formsubmit.co/hectorhernandeztarano@gmail.com" method="POST" target="hiddenFrame" onsubmit="return validateForm()">
-        <label for="name">Client Name:</label>
-        <input type="text" id="name" name="name" required aria-required="true" autocomplete="name" />
+      <form action="https://formsubmit.co/hectorhernandeztarano@gmail.com" method="POST" target="hiddenFrame" onsubmit="return validateForm()" role="form" aria-labelledby="main-content">
+        <label for="name"><span class="label-icon">👤</span>Client Name:</label>
+        <input type="text" id="name" name="name" required aria-required="true" autocomplete="name" aria-describedby="error-name" />
+        <div id="error-name" class="error-message" aria-live="polite">Por favor ingresa tu nombre.</div>
 
-        <label for="address">Address:</label>
-        <input type="text" id="address" name="address" required aria-required="true" autocomplete="street-address" />
+        <label for="address"><span class="label-icon">🏠</span>Address:</label>
+        <input type="text" id="address" name="address" required aria-required="true" autocomplete="street-address" aria-describedby="error-address" />
+        <div id="error-address" class="error-message" aria-live="polite">Por favor ingresa tu dirección.</div>
 
-        <label for="gardenSize">Garden Size (in square feet):</label>
-        <input type="number" id="gardenSize" name="gardenSize" required aria-required="true" min="0" inputmode="numeric" />
+        <label for="gardenSize"><span class="label-icon">🌱</span>Garden Size (in square feet):</label>
+        <input type="number" id="gardenSize" name="gardenSize" required aria-required="true" min="0" inputmode="numeric" aria-describedby="error-gardenSize" />
+        <div id="error-gardenSize" class="error-message" aria-live="polite">Por favor ingresa el tamaño de tu jardín.</div>
 
-        <label for="yardSize">Yard Size (in square feet) [optional]:</label>
+        <label for="yardSize"><span class="label-icon">🌳</span>Yard Size (in square feet) [optional]:</label>
         <input type="number" id="yardSize" name="yardSize" min="0" inputmode="numeric" />
 
-        <label for="phone">Phone Number:</label>
-        <input type="tel" id="phone" name="phone" required aria-required="true" pattern="[0-9]{10}" placeholder="e.g. 8135260925" inputmode="numeric" maxlength="10" aria-describedby="phone-desc" />
+        <label for="phone"><span class="label-icon">📞</span>Phone Number:</label>
+        <input type="tel" id="phone" name="phone" required aria-required="true" pattern="[0-9]{10}" placeholder="e.g. 8135260925" inputmode="numeric" maxlength="10" aria-describedby="phone-desc error-phone" />
+        <div id="error-phone" class="error-message" aria-live="polite">Por favor ingresa un teléfono válido de 10 dígitos.</div>
         <span id="phone-desc" style="font-size:0.9em;color:#555;">Enter a 10-digit phone number, numbers only.</span>
 
         <!-- Hidden fields -->
@@ -109,35 +197,81 @@
         <input type="hidden" name="_captcha" value="false" />
         <input type="hidden" name="unidad" value="Measurements are in square feet." />
 
-        <input type="submit" value="Submit Request" />
+        <button type="submit" class="submit-btn" aria-label="Enviar solicitud">
+          <span class="label-icon">📤</span>Enviar solicitud
+        </button>
       </form>
 
       <iframe name="hiddenFrame" style="display:none;"></iframe>
 
       <script>
         function validateForm() {
-          const requiredFields = ["name", "address", "gardenSize", "phone"];
-          for (let id of requiredFields) {
-            const input = document.getElementById(id);
-            if (!input.value.trim()) {
-              alert("Please complete all required fields.");
-              return false;
-            }
-          }
+          let valid = true;
+          ["name", "address", "gardenSize", "phone"].forEach(id => {
+            document.getElementById("error-"+id).style.display = "none";
+          });
 
+          // Validación de campos obligatorios
+          const name = document.getElementById("name");
+          if (!name.value.trim()) {
+            document.getElementById("error-name").style.display = "block";
+            valid = false;
+          }
+          const address = document.getElementById("address");
+          if (!address.value.trim()) {
+            document.getElementById("error-address").style.display = "block";
+            valid = false;
+          }
+          const gardenSize = document.getElementById("gardenSize");
+          if (!gardenSize.value.trim()) {
+            document.getElementById("error-gardenSize").style.display = "block";
+            valid = false;
+          }
           const phone = document.getElementById("phone");
-          const isValid = /^[0-9]{10}$/.test(phone.value);
-          if (!isValid) {
-            alert("Phone number must be exactly 10 digits.");
-            return false;
+          const isValidPhone = /^[0-9]{10}$/.test(phone.value);
+          if (!isValidPhone) {
+            document.getElementById("error-phone").style.display = "block";
+            valid = false;
           }
 
-          // Smooth redirect after submission
+          if (!valid) return false;
+
           setTimeout(() => {
             window.location.href = "gracias.html";
           }, 500);
           return true;
         }
+
+        // Validación en tiempo real
+        document.getElementById("name").addEventListener("input", function() {
+          if (!this.value.trim()) {
+            document.getElementById("error-name").style.display = "block";
+          } else {
+            document.getElementById("error-name").style.display = "none";
+          }
+        });
+        document.getElementById("address").addEventListener("input", function() {
+          if (!this.value.trim()) {
+            document.getElementById("error-address").style.display = "block";
+          } else {
+            document.getElementById("error-address").style.display = "none";
+          }
+        });
+        document.getElementById("gardenSize").addEventListener("input", function() {
+          if (!this.value.trim()) {
+            document.getElementById("error-gardenSize").style.display = "block";
+          } else {
+            document.getElementById("error-gardenSize").style.display = "none";
+          }
+        });
+        document.getElementById("phone").addEventListener("input", function() {
+          const isValidPhone = /^[0-9]{10}$/.test(this.value);
+          if (!isValidPhone) {
+            document.getElementById("error-phone").style.display = "block";
+          } else {
+            document.getElementById("error-phone").style.display = "none";
+          }
+        });
 
         // Custom message if invalid phone entered
         document.getElementById("phone").addEventListener("invalid", function () {
@@ -151,7 +285,10 @@
     </main>
 
     <footer>
-      &copy; 2025 Dad's Outdoor Solutions
+      &copy; 2025 Dad's Outdoor Solutions<br>
+      <a href="mailto:hectorhernandeztarano@gmail.com" style="color:#eaf5e2;text-decoration:none;margin:0 8px;">✉️ Email</a>
+      <a href="tel:8135260925" style="color:#eaf5e2;text-decoration:none;margin:0 8px;">📞 Teléfono</a>
+      <a href="https://wa.me/18135260925" target="_blank" style="color:#eaf5e2;text-decoration:none;margin:0 8px;">💬 WhatsApp</a>
     </footer>
 
   </div>
